@@ -14,13 +14,12 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-
 import { Link, NavLink } from 'react-router-dom';
 
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
 
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
@@ -48,9 +47,9 @@ const Header = () => {
                         sx={{ mr: 4, fontSize: 22, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}
                     >
                         <Link to="/">
-                            <img src={logo} className='logo-design'></img>
+                            <img src={logo} alt='logo' className='logo-design'></img>
                         </Link>
-                        Swap
+                        IdeaSwap
                     </Typography>
                     {/* --------------Large screen app bar-------------- */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 8 }}>
@@ -62,11 +61,11 @@ const Header = () => {
                                 style={isActive => ({
                                     color: isActive ? "white" : "blue",
                                     textDecoration: "none"
-                                })}
-                            >
+                                })}>
                                 Home
                             </NavLink>
                         </Button>
+
                         <Button
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
                             <NavLink
@@ -75,8 +74,7 @@ const Header = () => {
                                 style={isActive => ({
                                     color: isActive ? "white" : "blue",
                                     textDecoration: "none"
-                                })}
-                            >
+                                })}>
                                 Courses
                             </NavLink>
                         </Button>
@@ -93,6 +91,7 @@ const Header = () => {
                                 SignIn
                             </NavLink>
                         </Button>
+
                         <Button
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
                             <NavLink
@@ -115,9 +114,9 @@ const Header = () => {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
+                            color="inherit">
                             <MenuIcon />
+
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -148,6 +147,7 @@ const Header = () => {
                                     <Typography textAlign="center" sx={{ fontSize: 18 }}>HOME</Typography>
                                 </NavLink>
                             </MenuItem>
+
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <NavLink
                                     to="/courses"
@@ -158,6 +158,7 @@ const Header = () => {
                                     <Typography textAlign="center" sx={{ fontSize: 18 }}>COURSES</Typography>
                                 </NavLink>
                             </MenuItem>
+
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <NavLink
                                     to="/signIn"
@@ -168,6 +169,7 @@ const Header = () => {
                                     <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNIN</Typography>
                                 </NavLink>
                             </MenuItem>
+
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <NavLink
                                     to="/signUp"
@@ -186,18 +188,18 @@ const Header = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ pr:13, display: { xs: 'flex', md: 'none' }, fontSize: 22, justifyContent: 'center', alignItems: 'center' }}
+                        sx={{ pr: 13, display: { xs: 'flex', md: 'none' }, fontSize: 22, justifyContent: 'center', alignItems: 'center' }}
                     >
                         <Link to="/">
-                            <img src={logo} className='logo-design'></img>
+                            <img src={logo} alt='logo' className='logo-design'></img>
                         </Link>
                         IdeaSwap
                     </Typography>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr:5}}>
-                                <Avatar alt="Remy Sharp" src="" />
+                        <Tooltip title="Open profile">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr: 5 }}>
+                                <Avatar alt="Profile pic" src="" sx={{bgcolor: 'secondary.main' }} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -214,27 +216,27 @@ const Header = () => {
                                 horizontal: 'right',
                             }}
                             open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
+                            onClose={handleCloseUserMenu}>
+
                             <MenuItem onClick={handleCloseUserMenu}>
-                            <NavLink
-                                to="/dashboard"
-                                style={isActive => ({
-                                    color: isActive ? "black" : "blue",
-                                    textDecoration: "none"
-                                })}>
-                                <Typography textAlign="center" sx={{ fontSize: 16 }}>DASHBOARD</Typography>
-                            </NavLink>
+                                <NavLink
+                                    to="/dashboard"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 16 }}>DASHBOARD</Typography>
+                                </NavLink>
                             </MenuItem>
                             <MenuItem onClick={handleCloseUserMenu}>
-                            <NavLink
-                                to="/home"
-                                style={isActive => ({
-                                    color: isActive ? "black" : "blue",
-                                    textDecoration: "none"
-                                })}>
-                                <Typography textAlign="center" sx={{ fontSize: 16 }}>SIGN OUT</Typography>
-                            </NavLink>
+                                <NavLink
+                                    to="/home"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 16 }}>SIGN OUT</Typography>
+                                </NavLink>
                             </MenuItem>
                         </Menu>
                     </Box>

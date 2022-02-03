@@ -5,7 +5,7 @@ const Courses = () => {
     return (
         <div>
             <Header></Header>
-            This is corses page
+            This is courses page
         </div>
     );
 };
