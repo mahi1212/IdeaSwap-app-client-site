@@ -12,11 +12,22 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+
 import { Link, NavLink } from 'react-router-dom';
 
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -29,17 +40,19 @@ const Header = () => {
         <AppBar position="static" sx={{ backgroundColor: 'navy', py: 1 }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters >
-                    {/* Logo for large screen */}
+                    {/* --------------Logo for large screen-------------- */}
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{ mr: 4, fontSize: 22, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}
                     >
-                        <img src={logo} className='logo-design'></img>
-                        IdeaSwap
+                        <Link to="/">
+                            <img src={logo} className='logo-design'></img>
+                        </Link>
+                        Swap
                     </Typography>
-                    {/* Large screen app bar */}
+                    {/* --------------Large screen app bar-------------- */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 8 }}>
                         <Button
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
@@ -93,7 +106,7 @@ const Header = () => {
                             </NavLink>
                         </Button>
                     </Box>
-
+                    {/* -------------------------small screen customization starts here--------------------- */}
                     {/* MenuIcon for small screen*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -124,8 +137,8 @@ const Header = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {/* Small screen app bar */}
-                            <MenuItem onClick={handleCloseNavMenu} sx={{width: '100vw'}}>
+                            {/* --------------Small screen app bar-------------- */}
+                            <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100vw' }}>
                                 <NavLink
                                     to="/home"
                                     style={isActive => ({
@@ -167,17 +180,64 @@ const Header = () => {
                             </MenuItem>
                         </Menu>
                     </Box>
-                    {/* Small screen Logo */}
+                    {/* --------------Small screen Logo-------------- */}
                     <Typography
+                        className='logo-text'
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'flex', md: 'none' }, fontSize: 22, justifyContent: 'center', alignItems: 'center' }}
+                        sx={{ pr:13, display: { xs: 'flex', md: 'none' }, fontSize: 22, justifyContent: 'center', alignItems: 'center' }}
                     >
-                        <img src={logo} className='logo-design'></img>
+                        <Link to="/">
+                            <img src={logo} className='logo-design'></img>
+                        </Link>
                         IdeaSwap
                     </Typography>
 
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip title="Open settings">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr:5}}>
+                                <Avatar alt="Remy Sharp" src="" />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            <MenuItem onClick={handleCloseUserMenu}>
+                            <NavLink
+                                to="/dashboard"
+                                style={isActive => ({
+                                    color: isActive ? "black" : "blue",
+                                    textDecoration: "none"
+                                })}>
+                                <Typography textAlign="center" sx={{ fontSize: 16 }}>DASHBOARD</Typography>
+                            </NavLink>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseUserMenu}>
+                            <NavLink
+                                to="/home"
+                                style={isActive => ({
+                                    color: isActive ? "black" : "blue",
+                                    textDecoration: "none"
+                                })}>
+                                <Typography textAlign="center" sx={{ fontSize: 16 }}>SIGN OUT</Typography>
+                            </NavLink>
+                            </MenuItem>
+                        </Menu>
+                    </Box>
                 </Toolbar>
             </Container>
         </AppBar>
