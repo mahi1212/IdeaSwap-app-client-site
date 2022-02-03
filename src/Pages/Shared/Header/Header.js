@@ -12,7 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -42,32 +42,55 @@ const Header = () => {
                     {/* Large screen app bar */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 8 }}>
                         <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{fontSize:18 , my: 2, mx: 1, px: 1, color: 'white', display: 'block' }}>
-                            <Link to="/home">
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/home"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}
+                            >
                                 Home
-                            </Link>
+                            </NavLink>
                         </Button>
                         <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{fontSize:18, my: 2, mx: 1, px: 1, color: 'white', display: 'block' }}>
-                            <Link to="/courses">
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/courses"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}
+                            >
                                 Courses
-                            </Link>
+                            </NavLink>
                         </Button>
+
                         <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{fontSize:18, my: 2, mx: 1, px: 1, color: 'white', display: 'block' }}>
-                            <Link to="/signin">
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/signIn"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}>
                                 SignIn
-                            </Link>
+                            </NavLink>
                         </Button>
                         <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{fontSize:18, my: 2, mx: 1, px: 1, color: 'white', display: 'block' }}>
-                            <Link to="/signup">
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/signUp"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}>
                                 SignUp
-                            </Link>
+                            </NavLink>
                         </Button>
                     </Box>
 
@@ -102,17 +125,45 @@ const Header = () => {
                             }}
                         >
                             {/* Small screen app bar */}
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" sx={{ fontSize: 18 }}>HOME</Typography>
+                            <MenuItem onClick={handleCloseNavMenu} sx={{width: '100vw'}}>
+                                <NavLink
+                                    to="/home"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>HOME</Typography>
+                                </NavLink>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" sx={{ fontSize: 18 }}>COURSES</Typography>
+                                <NavLink
+                                    to="/courses"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>COURSES</Typography>
+                                </NavLink>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNIN</Typography>
+                                <NavLink
+                                    to="/signIn"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNIN</Typography>
+                                </NavLink>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNUP</Typography>
+                                <NavLink
+                                    to="/signUp"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNUP</Typography>
+                                </NavLink>
                             </MenuItem>
                         </Menu>
                     </Box>
