@@ -5,7 +5,7 @@ import { Button, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 const Banner = () => {
     return (
-        <div style={{height: "100vh", display: "flex", justifyContent: "flex-start", alignItems: "center"}}>
+        <div style={{height: "90vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
             <video loop autoPlay muted
                 style={{
                     position: "absolute",
@@ -26,7 +26,7 @@ const Banner = () => {
                 Your browser does not support the video tag.{/* This is for old browsers that doesn't support video */}
             </video>
             <div className='text-design'>
-                <Typography variant="h3" sx={{py:1, px: 1}}>New to Our Website?</Typography>
+                <Typography variant="h3" sx={{py:1, px: 2}}>New to Our Website?</Typography>
                 <NavLink style={{textDecoration: "none"}} to="/signIn"><Button  variant='contained' sx={{py: 1.5}}>Let's Get Started</Button></NavLink>
             </div>
         </div>

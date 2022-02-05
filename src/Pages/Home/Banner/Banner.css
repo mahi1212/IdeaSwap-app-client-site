@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Supermercado+One&display=swap');
 .text-design h3{
     margin-top: -7rem;
     background-color: aliceblue;
     margin-bottom: 2rem;
+    font-family: 'Staatliches', cursive;
+    word-spacing: 7px;
+    letter-spacing: 1px;
+    border-radius: 10px;
 }
 
 
