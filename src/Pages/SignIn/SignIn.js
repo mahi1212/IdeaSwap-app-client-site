@@ -9,7 +9,6 @@ import Grid from '@mui/material/Grid';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import Header from '../Shared/Header/Header';
 
 const SignIn = () => {
     const handleSubmit = (event) => {
@@ -24,7 +23,6 @@ const SignIn = () => {
 
     return (
         <div>
-            <Header></Header>
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
                 <Grid

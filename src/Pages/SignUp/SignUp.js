@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Shared/Header/Header';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -30,7 +29,6 @@ const SignUp = () => {
 
     return (
         <>
-            <Header></Header>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
