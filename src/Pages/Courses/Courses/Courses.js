@@ -52,7 +52,7 @@ const Courses = () => {
     //         short_title: "Build your modern app using kotlin language with less time and more efficiently"
     //     }
     // ]
-    
+
     const [courses, setCourses] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/courses')
@@ -60,17 +60,18 @@ const Courses = () => {
             .then(data => setCourses(data))
     }, [])
     return (
-        <>
-            <Typography variant="h5" className="heading" sx={{ py: 1, pl: 2, borderLeft: "10px solid green", borderRight: "10px solid green"}}> COURSES WE OFFER</Typography>
+        <div data-aos="fade-up"
+            data-aos-anchor-placement="top-center">
+            <Typography variant="h5" className="heading" sx={{ py: 1, pl: 2, borderLeft: "10px solid green", borderRight: "10px solid green" }}> COURSES WE OFFER</Typography>
 
-            <Box paddingX={{ xs: 2, sm: 5, md: 4 }}>
+            <Box paddingX={{ xs: 2, sm: 5, md: 4 }} data-aos="fade-in" data-aos-duration="4000">
                 <Grid container spacing={{ xs: 2, sm: 4, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
                         courses.map(course => <Course course={course} id={course._id}></Course>)
                     }
                 </Grid>
             </Box>
-        </>
+        </div>
     );
 };
 export default Courses;
