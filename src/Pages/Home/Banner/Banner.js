@@ -1,6 +1,6 @@
 import React from 'react';
 import './Banner.css';
-import video from '../../../Video/darkTyping.mp4';
+import video from '../../../Video/typing.mp4';
 import { Button, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 const Banner = () => {
