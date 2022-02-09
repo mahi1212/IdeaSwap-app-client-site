@@ -10,12 +10,49 @@ const Courses = () => {
 
     // const courses = [
     //     {
-    //         name: "Java App development",
-    //         description: "Java is one of the powerful general-purpose programming languages, created in 1995 by Sun Microsystems (now owned by Oracle). Java is Object-Oriented. However, it is not considered as pure object-oriented as it provides support for primitive data types (like int, char, etc). Java syntax is similar to C/C++",
-    //         img:"https://i.ibb.co/NjK8Vqc/java.jpg",
-    //         short_title: "We offer you the complete guidline to be a app developer"
+    //         name: "Pyton AI",
+    //         description: "Python is an interpreted high-level general-purpose programming language. Its design philosophy emphasizes code readability with its use of significant indentation. Its language constructs as well as its object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.",
+    //         img:"https://i.ibb.co/tPR4Nxy/py.jpg",
+    //         short_title: "Learn Python AI and deep learning course using Python language"
+    //     },
+    //     {
+    //         name: "JavaScript",
+    //         description: "JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat etc",
+    //         img:"https://i.ibb.co/VwZGRfG/JS.png",
+    //         short_title: "Become a successful web engineer after mastering in JavaScript"
+    //     },
+    //     {
+    //         name: "React JS",
+    //         description: "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable and easier to debug.",
+    //         img:"https://i.ibb.co/HzWhY8R/react.jpg",
+    //         short_title: "If front End development is your target then React is best for you! "
+    //     },
+    //     {
+    //         name: "C++",
+    //         description: "C++ is a powerful general-purpose programming language. It can be used to develop operating systems, browsers, games, and so on. C++ supports different ways of programming like procedural, object-oriented, functional, and so on. This makes C++ powerful as well as flexible.",
+    //         img:"https://i.ibb.co/1rpTLPk/cplus.png",
+    //         short_title: "Our C++ programming tutorial will guide you to learn C++ programming one step at a time."
+    //     },
+    //     {
+    //         name: "PHP",
+    //         description: "PHP is a general-purpose scripting language geared towards web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group",
+    //         img:"https://i.ibb.co/ngRXXG7/PHP.jpg",
+    //         short_title: "Build your modern app using kotlin language with less time and more efficiently"
+    //     },
+    //     {
+    //         name: "TypeScript",
+    //         description: "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.",
+    //         img:"https://i.ibb.co/r3J77Gh/typeScr.png",
+    //         short_title: "TypeScript is a strongly typed programming language builds on JavaScript, giving you better tooling at any scale."
+    //     },
+    //     {
+    //         name: "Kotlin",
+    //         description: "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise.",
+    //         img:"https://i.ibb.co/FqhhsdQ/kotlin.png",
+    //         short_title: "Build your modern app using kotlin language with less time and more efficiently"
     //     }
     // ]
+    
     const [courses, setCourses] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/courses')

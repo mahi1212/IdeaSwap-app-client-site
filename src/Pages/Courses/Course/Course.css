@@ -6,8 +6,8 @@
   align-items: center;
   height: 30vh;
   /* padding: 10px 0; */
-  border: 1px solid slateblue;
-  border-radius: 7px 10px 10px 7px;
+  border: 1px solid #000;
+  border-radius: 7px 5px 10px 7px;
   margin: 20px 0;
 }
 
@@ -37,7 +37,7 @@
 .text-section .name {
   text-align: center;
   width: 100%;
-  border-bottom: 2px solid slateblue;
+  border-bottom: 1px solid slateblue;
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -52,18 +52,23 @@
 }
 
 .text-section .enroll-btn {
-  background-color: navy;
+  background-color: rgba(6, 136, 6, 0.787);
   color: #fff;
   width: 100%;
   padding: 3px 0;
   border: none;
   font-size: 20px;
-  border-radius: 0 0 7px 0;
+  border-radius: 0 0 6px 0;
   cursor: pointer;
   transition: all 0.2s;
   font-family: 'Lato', sans-serif;
 }
 .enroll-btn:hover {
-  background-color: rgba(5, 109, 5, 0.787);
+  background-color: rgba(24, 212, 24, 0.835);
   color: #fff;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  transition: all linear 0.2s;
 }
