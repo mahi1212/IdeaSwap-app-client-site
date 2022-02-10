@@ -43,7 +43,7 @@ const Header = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 4, fontSize: 22, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}
+                        sx={{ mr: 2, fontSize: 22, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}
                     >
                         <Link to="/">
                             <img src={logo} alt='logo' className='logo-design'></img>
@@ -156,7 +156,7 @@ const Header = () => {
                                         color: isActive ? "black" : "blue",
                                         textDecoration: "none"
                                     })}>
-                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>HOME</Typography>
+                                    <Typography sx={{ fontSize: 18 }}>HOME</Typography>
                                 </NavLink>
                             </MenuItem>
 
@@ -167,7 +167,18 @@ const Header = () => {
                                         color: isActive ? "black" : "blue",
                                         textDecoration: "none"
                                     })}>
-                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>COURSES</Typography>
+                                    <Typography sx={{ fontSize: 18 }}>COURSES</Typography>
+                                </NavLink>
+                            </MenuItem>
+
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <NavLink
+                                    to="/feedback"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography sx={{ fontSize: 18, display:'block' }}>FEEDBACK</Typography>
                                 </NavLink>
                             </MenuItem>
 
@@ -178,7 +189,7 @@ const Header = () => {
                                         color: isActive ? "black" : "blue",
                                         textDecoration: "none"
                                     })}>
-                                    <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNIN</Typography>
+                                    <Typography sx={{ fontSize: 18 }}>SIGNIN</Typography>
                                 </NavLink>
                             </MenuItem>
 
