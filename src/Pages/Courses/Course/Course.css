@@ -67,8 +67,3 @@
   background-color: rgba(24, 212, 24, 0.835);
   color: #fff;
 }
-
-.card:hover{
-  transform: scale(1.05);
-  transition: all linear 0.2s;
-}

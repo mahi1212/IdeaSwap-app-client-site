@@ -16,7 +16,6 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import { Link, NavLink } from 'react-router-dom';
 
-
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -76,6 +75,19 @@ const Header = () => {
                                     textDecoration: "none"
                                 })}>
                                 Courses
+                            </NavLink>
+                        </Button>
+                        
+                        <Button
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/feedback"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}>
+                                Feedback
                             </NavLink>
                         </Button>
 

@@ -60,8 +60,7 @@ const Courses = () => {
             .then(data => setCourses(data))
     }, [])
     return (
-        <div data-aos="fade-up"
-            data-aos-anchor-placement="top-center">
+        <div data-aos="fade-up">
             <Typography variant="h5" className="heading" sx={{ py: 1, pl: 2, borderLeft: "10px solid green", borderRight: "10px solid green" }}> COURSES WE OFFER</Typography>
 
             <Box paddingX={{ xs: 2, sm: 5, md: 4 }} data-aos="fade-in" data-aos-duration="4000">
