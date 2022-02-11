@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Typography } from '@mui/material';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,40 +14,46 @@ import "./Feedback.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 const FeedBack = () => {
-    const data = [
-        {
-            username: "Rahman Joy",
-            description: "I'm just a beginner for Python and JS classes, and find this course really concise and challenging.They made it easy!",
-        },
-        {
-            username: "M Rahman(Mahi)",
-            description: "Very interesting course! Superb teaching and homework assignments. If you are interested in functional programming.",
-        },
-        {
-            username: "ASM Rayat",
-            description: "Amazing course I've seen ever! They teach everything practically. Really I appreciate them. No wonder it got so high average score.",
-        },
-        {
-            username: "Adib Mahir",
-            description: "I loved learning the concepts used in the ML language: case statements, recursion, pattern matching. The professor explained things really well.",
-        },
-        {
-            username: "Jannat Jenny",
-            description: "This course has long been on my favurite list. However, I have dropped out of previous sessions quite a few times and they worth watching",
-        },
-        {
-            username: "Sumaiya Oishee",
-            description: "An excellent course!  Make sure you really have enough time to take this course. There are a lot of videos. I'd recommend this course to everyone involved in programming.",
-        },
-        {
-            username: "Jakiul Rafi",
-            description: " There are minor things like I disliked like a few of the problems being worded unclearly and some lectures topics that weren't explained in the best manner.",
-        },
-        {
-            username: "Farhan Kabir",
-            description: " It's indeed one of the best courses. I like the way Dan breaks down complex concepts, like pattern matching or type interference, and aims at teaching the principles underlying software design.",
-        }
-    ]
+    const [feedbacks, setFeedbacks] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/feedbacks')
+        .then(res => res.json())
+        .then(data => setFeedbacks(data))
+    }, [])
+    // const data = [
+    //     {
+    //         username: "Rahman Joy",
+    //         description: "I'm just a beginner for Python and JS classes, and find this course really concise and challenging.They made it easy!",
+    //     },
+    //     {
+    //         username: "M Rahman(Mahi)",
+    //         description: "Very interesting course! Superb teaching and homework assignments. If you are interested in functional programming.",
+    //     },
+    //     {
+    //         username: "ASM Rayat",
+    //         description: "Amazing course I've seen ever! They teach everything practically. Really I appreciate them. No wonder it got so high average score.",
+    //     },
+    //     {
+    //         username: "Adib Mahir",
+    //         description: "I loved learning the concepts used in the ML language: case statements, recursion, pattern matching. The professor explained things really well.",
+    //     },
+    //     {
+    //         username: "Jannat Jenny",
+    //         description: "This course has long been on my favurite list. However, I have dropped out of previous sessions quite a few times and they worth watching",
+    //     },
+    //     {
+    //         username: "Sumaiya Oishee",
+    //         description: "An excellent course!  Make sure you really have enough time to take this course. There are a lot of videos. I'd recommend this course to everyone involved in programming.",
+    //     },
+    //     {
+    //         username: "Jakiul Rafi",
+    //         description: " There are minor things like I disliked like a few of the problems being worded unclearly and some lectures topics that weren't explained in the best manner.",
+    //     },
+    //     {
+    //         username: "Farhan Kabir",
+    //         description: " It's indeed one of the best courses. I like the way Dan breaks down complex concepts, like pattern matching or type interference, and aims at teaching the principles underlying software design.",
+    //     }
+    // ]
 
     return (
         <div >
@@ -85,7 +91,7 @@ const FeedBack = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                {data.map(user => (
+                {feedbacks.map(user => (
                     <SwiperSlide key={user.username}>
                         <div className='box'>
                             <div className='inner-box'>
