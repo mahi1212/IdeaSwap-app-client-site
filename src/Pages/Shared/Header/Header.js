@@ -82,7 +82,7 @@ const Header = () => {
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
                             <NavLink
                                 onClick={handleCloseNavMenu}
-                                to="/feedback"
+                                to="/myFeedback"
                                 style={isActive => ({
                                     color: isActive ? "white" : "blue",
                                     textDecoration: "none"
@@ -173,7 +173,7 @@ const Header = () => {
 
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <NavLink
-                                    to="/feedback"
+                                    to="/myFeedback"
                                     style={isActive => ({
                                         color: isActive ? "black" : "blue",
                                         textDecoration: "none"

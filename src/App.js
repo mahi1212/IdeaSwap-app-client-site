@@ -11,7 +11,7 @@ import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Header from './Pages/Shared/Header/Header';
-import FeedBack from './Pages/FeedBack/FeedBack';
+import MyFeedback from './Pages/MyFeedback/MyFeedback';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Home></Home>} />
           <Route path="home" element={<Home />} />
           <Route path="courses" element={<Courses />} />
-          <Route path='feedback' element={<FeedBack />}/>
+          <Route path='myFeedback' element={<MyFeedback />}/>
           <Route path="signUp" element={<SignUp />} />
           <Route path="signIn" element={<SignIn />} />
           <Route path="*" element={<PageNotFound />} />
