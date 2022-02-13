@@ -3,7 +3,9 @@ import React from 'react';
 import './Home.css'
 import Banner from '../Banner/Banner';
 import Courses from '../../Courses/Courses/Courses';
-import FeedBack from '../../FeedBack/FeedBack';
+import FeedBack from '../FeedBack/FeedBack';
+import Contact from '../../Contact/Contact';
+import SocialMedia from '../SocialMedia/SocialMedia';
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
             {/* <TopRated></TopRated> */}
             <Courses></Courses>
             <FeedBack></FeedBack>
+            <Contact></Contact>
+            <SocialMedia></SocialMedia>
         </div>
     );
 };

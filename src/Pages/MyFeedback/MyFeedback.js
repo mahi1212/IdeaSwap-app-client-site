@@ -37,7 +37,7 @@ const MyFeedback = () => {
                             border: '1px solid gray'
                         }}
                     >
-                        <Typography component="h1" variant="h5" sx={{mb: 3}}>
+                        <Typography component="h1" variant="h5" sx={{p: 1, px: 2, border: '1px solid green'}}>
                             Leave Your Review
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
