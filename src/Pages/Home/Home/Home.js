@@ -13,12 +13,10 @@ const Home = () => {
     return (
         <div className='app'>
             <Banner></Banner>
-            {/* <Typography variant="h5" className="heading" sx={{ textAlign: "left", py: 1, pl: 2, borderLeft: "10px solid green", mt: -3 }}> TOP RATED COURSES</Typography> */}
-            {/* <TopRated></TopRated> */}
             <Courses></Courses>
             <FeedBack></FeedBack>
-            <Contact></Contact>
             <SocialMedia></SocialMedia>
+            <Contact></Contact>
         </div>
     );
 };
