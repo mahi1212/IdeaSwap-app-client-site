@@ -23,7 +23,7 @@ const FeedBack = () => {
 
     return (
         <div >
-            <Typography variant="h5" className="heading" sx={{ py: 2, pl: 2 }}> STUDENTS FEEDBACK</Typography>
+            <Typography variant="h5" className="heading" sx={{ py: 2, pl: 2 }}> STUDENT'S FEEDBACK</Typography>
             <Swiper
                 spaceBetween={50}
                 // centeredSlides={true}

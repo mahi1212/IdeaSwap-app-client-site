@@ -1,13 +1,11 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import Chip from '@mui/material/Chip';
 
 const MyFeedback = () => {
     const handleSubmit = (event) => {
@@ -32,14 +30,12 @@ const MyFeedback = () => {
                             flexDirection: 'column',
                             alignItems: 'center',
                             px: 3,
-                            py: 8,
+                            py: 6,
                             borderRadius: 1,
                             border: '1px solid gray'
                         }}
                     >
-                        <Typography component="h1" variant="h5" sx={{p: 1, px: 2, border: '1px solid green'}}>
-                            Leave Your Review
-                        </Typography>
+                        <Chip label="Leave Your Review" variant="outlined" sx={{fontSize: '1.2rem'}} />
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"

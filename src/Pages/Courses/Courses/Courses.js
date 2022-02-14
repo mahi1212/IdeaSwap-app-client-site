@@ -67,7 +67,7 @@ const Courses = () => {
         <div data-aos="fade-up">
             <Typography variant="h5" className="heading" sx={{ py: 1, pl: 2, borderLeft: "10px solid green", borderRight: "10px solid green" }}> COURSES WE OFFER</Typography>
 
-            <Box paddingX={{ xs: 2, sm: 5, md: 4 }} data-aos="fade-in" data-aos-duration="4000">
+            <Box paddingX={{ xs: 2, sm: 5, md: 4 }} sx={{paddingBottom: '20px'}} data-aos="fade-in" data-aos-duration="4000">
                 <Grid container spacing={{ xs: 2, sm: 4, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
                         path == '/courses' ? courses.map(course => <Course course={course} id={course._id}></Course>) :
@@ -76,7 +76,7 @@ const Courses = () => {
                     {
                         path == '/home' && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', width: '100%' }}>
                             <NavLink to='/courses' style={{
-                                background: '#595260',
+                                background: '#753188',
                                 color: '#fff',
                                 padding: '10px 20px',
                                 margin: '20px 0',

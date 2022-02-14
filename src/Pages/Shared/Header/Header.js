@@ -35,7 +35,7 @@ const Header = () => {
     };
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'navy', py: 1 }}>
+        <AppBar position="static" sx={{ backgroundColor: '#072227', py: 1 }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters >
                     {/* --------------Logo for large screen-------------- */}
@@ -77,7 +77,7 @@ const Header = () => {
                                 Courses
                             </NavLink>
                         </Button>
-                        
+
                         <Button
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
                             <NavLink
@@ -88,6 +88,19 @@ const Header = () => {
                                     textDecoration: "none"
                                 })}>
                                 Feedback
+                            </NavLink>
+                        </Button>
+
+                        <Button
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/contact"
+                                style={isActive => ({
+                                    color: isActive ? "white" : "blue",
+                                    textDecoration: "none"
+                                })}>
+                                Contact
                             </NavLink>
                         </Button>
 
@@ -178,7 +191,18 @@ const Header = () => {
                                         color: isActive ? "black" : "blue",
                                         textDecoration: "none"
                                     })}>
-                                    <Typography sx={{ fontSize: 18, display:'block' }}>FEEDBACK</Typography>
+                                    <Typography sx={{ fontSize: 18, display: 'block' }}>FEEDBACK</Typography>
+                                </NavLink>
+                            </MenuItem>
+
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <NavLink
+                                    to="/contact"
+                                    style={isActive => ({
+                                        color: isActive ? "black" : "blue",
+                                        textDecoration: "none"
+                                    })}>
+                                    <Typography sx={{ fontSize: 18, display: 'block' }}>CONTACT</Typography>
                                 </NavLink>
                             </MenuItem>
 
@@ -222,7 +246,7 @@ const Header = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open profile">
                             <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr: 1 }}>
-                                <Avatar alt="Profile pic" src="" sx={{bgcolor: 'secondary.main' }} />
+                                <Avatar alt="Profile pic" src="" sx={{ bgcolor: 'secondary.main' }} />
                             </IconButton>
                         </Tooltip>
                         <Menu

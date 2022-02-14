@@ -12,21 +12,25 @@ import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Header from './Pages/Shared/Header/Header';
 import MyFeedback from './Pages/MyFeedback/MyFeedback';
+import Footer from './Pages/Shared/Footer/Footer';
+import Contact from './Pages/Contact/Contact';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header></Header>
+        <Header />
         <Routes>
           <Route path="/" element={<Home></Home>} />
           <Route path="home" element={<Home />} />
           <Route path="courses" element={<Courses />} />
           <Route path='myFeedback' element={<MyFeedback />}/>
+          <Route path='contact' element={<Contact />}/>
           <Route path="signUp" element={<SignUp />} />
           <Route path="signIn" element={<SignIn />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -27,7 +27,7 @@ const SocialMedia = () => {
                 }}>
                     <Chip sx={{ py: 4,px: 5, background: '#fff', fontSize:'1.2rem' }} label="JOIN US ON" variant="outlined" />
                     <Box sx={{ width: '100%' }} style={{ height: '50vh' }}>
-                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} data-aos="fade-up">
+                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} data-aos="fade-right">
                             <Grid item xs={6}>
                                 {/* design purpose */}
                             </Grid>
