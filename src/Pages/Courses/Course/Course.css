@@ -45,6 +45,7 @@
   font-family: 'Lato', sans-serif;
   padding: 0 0 0 10px;
   font-size: 1.1rem;
+  overflow-y: hidden;
   height: 100%;
   display: flex;
   justify-content: center;

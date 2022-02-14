@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import socialBackground from '../../../Images/socialRem.png'
 import { Typography, Button } from '@mui/material';
 import FAQue from '../FAQ/FAQue';
 import Chip from '@mui/material/Chip';
+// AOS library for scroll animation
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SocialMedia = () => {
+    useEffect(()=>{
+        AOS.init();//initializing AOS
+    }, [])
 
     return (
         <Box sx={{ width: '100%', mt:12 }} >
@@ -20,8 +26,8 @@ const SocialMedia = () => {
                     objectFit: 'cover',
                 }}>
                     <Chip sx={{ py: 4,px: 5, background: '#fff', fontSize:'1.2rem' }} label="JOIN US ON" variant="outlined" />
-                    <Box sx={{ width: '100%' }} style={{ height: '60vh' }}>
-                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Box sx={{ width: '100%' }} style={{ height: '50vh' }}>
+                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} data-aos="fade-up">
                             <Grid item xs={6}>
                                 {/* design purpose */}
                             </Grid>

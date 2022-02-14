@@ -54,7 +54,6 @@ const MyFeedback = () => {
                             <TextField
                                 multiline
                                 rows={5}
-                                maxRows={10}
                                 margin="normal"
                                 required
                                 fullWidth
