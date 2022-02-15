@@ -4,11 +4,10 @@ import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import './Footer.css'
-import { fontSize } from '@mui/system';
 
 const Footer = () => {
     return (
-        <Box sx={{ flexGrow: 1, background: '#072227', paddingBottom: '1rem' }} paddingX={{ sm: '10px', md: '10px', lg: '7rem' }}>
+        <Box sx={{ flexGrow: 1, background: '#072227', paddingY: '1rem' }} paddingX={{ sm: '10px', md: '10px', lg: '7rem' }}>
             <Grid container spacing={2} rowGap={4}>
                 <Grid item xs={12} sm={12} md={4}>
                     <Typography variant='h5' sx={{ color: '#fff', paddingBottom: '10px' }}>Contact Us</Typography>

@@ -8,17 +8,34 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import useAuth from './../../hooks/useAuth';
+import { Alert, LinearProgress } from '@mui/material';
+import { createBrowserHistory } from 'history';
 
 const SignIn = () => {
-    const handleSubmit = (event) => {
+    const [loginData, setLoginData] = useState({});
+    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+
+    const location = useLocation();
+    const history = createBrowserHistory();
+
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+
+    // const handleGoogleSignIn = () => {
+    //     signInWithGoogle(location, history)
+    // }
+
+    const handleLoginSubmit = (event) => {
+        loginUser(loginData.email, loginData.password, location, history);
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
     };
 
     return (
@@ -47,7 +64,7 @@ const SignIn = () => {
                             alignItems: 'center',
                             px: 3,
                             py: 8,
-                            borderRadius: 1, 
+                            borderRadius: 1,
                             border: '1px solid gray'
                         }}
                     >
@@ -57,7 +74,7 @@ const SignIn = () => {
                         <Typography component="h1" variant="h5">
                             Sign in
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <Box component="form" noValidate onSubmit={handleLoginSubmit} sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
@@ -65,6 +82,7 @@ const SignIn = () => {
                                 id="email"
                                 label="Email Address"
                                 name="email"
+                                onChange={handleOnChange}
                                 autoComplete="email"
                                 autoFocus
                             />
@@ -73,6 +91,7 @@ const SignIn = () => {
                                 required
                                 fullWidth
                                 name="password"
+                                onChange={handleOnChange}
                                 label="Password"
                                 type="password"
                                 id="password"
@@ -88,7 +107,7 @@ const SignIn = () => {
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-
+                                    {/* <Button onClick={handleGoogleSignIn} ><a href='#sample'><i style={{ color: '#405DE6' }} className="fab fa-google fa-2x"></i></a> Google Sign In</Button> */}
                                 </Grid>
                                 <Grid item>
                                     <Link to="/signUp" variant="body2">
@@ -96,6 +115,17 @@ const SignIn = () => {
                                     </Link>
                                 </Grid>
                             </Grid>
+                            {
+                                isLoading && <LinearProgress />
+                            }
+                            {
+                                user?.email && <Alert sx={{ mt: 2 }} severity="success">You are logged In!</Alert>
+                            }
+                            {/* Complex ternary operation for error*/}
+                            {
+                                authError && <Alert sx={{ mt: 2 }} severity="error">{authError === 'Firebase: Error (auth/email-already-in-use).' ? [`${authError}==='Firebase: Error (auth/user-not-found).` ? 'Same email exist! Please change email' : 'Password should be at least 6 characters '] : 'User don\'t exist. Give correct password or Signup to make a new account'}</Alert>
+                            }
+
                         </Box>
                     </Box>
                 </Grid>

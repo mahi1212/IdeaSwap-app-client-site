@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -12,19 +12,26 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
-
+import useAuth from '../../hooks/useAuth';
+import { Alert, LinearProgress } from '@mui/material';
 
 
 const SignUp = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
+    const [loginData, setLoginData] = useState({})
+    const {user, registerUser, isLoading, authError} = useAuth()
 
-        console.log({
-            name: data.get('name'),
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+    const handleOnBlur = e => {
+        const field = e.target.name
+        const value = e.target.value
+        console.log(field, value)
+        const newLoginData = { ...loginData }
+        newLoginData[field] = value
+        setLoginData(newLoginData)
+    }
+
+    const handleSignUpSubmit = (event) => {
+        registerUser(loginData.name, loginData.email, loginData.password)
+        event.preventDefault();
     };
 
     return (
@@ -49,7 +56,7 @@ const SignUp = () => {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" noValidate onSubmit={handleSignUpSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField
@@ -59,6 +66,7 @@ const SignUp = () => {
                                     id="Name"
                                     label="Your Name"
                                     name="name"
+                                    onBlur={handleOnBlur}
                                     autoFocus
                                 />
                             </Grid>
@@ -69,6 +77,7 @@ const SignUp = () => {
                                     id="email"
                                     label="Email Address"
                                     name="email"
+                                    onBlur={handleOnBlur}
                                     autoComplete="email"
                                 />
                             </Grid>
@@ -77,6 +86,7 @@ const SignUp = () => {
                                     required
                                     fullWidth
                                     name="password"
+                                    onBlur={handleOnBlur}
                                     label="Password"
                                     type="password"
                                     id="password"
@@ -106,6 +116,11 @@ const SignUp = () => {
                             </Grid>
                         </Grid>
                     </Box>
+                    {
+                        isLoading && <LinearProgress color="success" />
+                    }
+                    {user?.email && <Alert severity="success">You are already logged in!</Alert>}
+                    {authError && <Alert severity="error">{authError==='Firebase: Error (auth/email-already-in-use).'? 'Same email exist! Please change your email' : 'Password should be at least 6 characters' }</Alert>}
                 </Box>
             </Container>
         </>
