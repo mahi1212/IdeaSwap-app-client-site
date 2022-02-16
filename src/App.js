@@ -27,15 +27,8 @@ function App() {
             <Route path="/" element={<Home></Home>} />
             <Route path="home" element={<Home />} />
             <Route path="courses" element={<Courses />} />
-            <Route
-              path="myFeedback"
-              element={
-                <PrivateRoute>
-                  <MyFeedback />
-                </PrivateRoute>
-              }
-            />
-            {/* <Route path='myFeedback' element={<MyFeedback />} /> */}
+            <Route path="courses/:courseId" element={ <PrivateRoute><Test /></PrivateRoute> }/>
+            <Route path='myFeedback' element={<MyFeedback />} />
             <Route path='contact' element={<Contact />} />
             <Route path="signUp" element={<SignUp />} />
             <Route path="signIn" element={<SignIn />} />

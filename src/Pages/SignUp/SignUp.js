@@ -4,8 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
@@ -41,7 +39,7 @@ const SignUp = () => {
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 2,
+                        marginY: 2,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -94,12 +92,8 @@ const SignUp = () => {
                                     autoComplete="new-password"
                                 />
                             </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I accept all terms of service of this website "
-                                />
-                            </Grid>
+                            {/* <Grid item xs={12}>
+                            </Grid> */}
                         </Grid>
                         <Button
                             type="submit"
@@ -109,6 +103,8 @@ const SignUp = () => {
                         >
                             Sign Up
                         </Button>
+                        <Typography variant='caption'>By pressing signup you will accept all terms of service of this website </Typography>
+
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <Link to="/signIn" variant="body2">
@@ -120,7 +116,7 @@ const SignUp = () => {
                     {
                         isLoading && <LinearProgress color="success" />
                     }
-                    {user?.email && <Alert severity="success">You are already logged in!</Alert>}
+                    {user?.email && <Alert severity="success" sx={{mt:2}}>You are already logged in!</Alert>}
                     {authError && <Alert severity="error">{authError==='Firebase: Error (auth/email-already-in-use).'? 'Same email exist! Please change your email' : 'Password should be at least 6 characters' }</Alert>}
                 </Box>
             </Container>
