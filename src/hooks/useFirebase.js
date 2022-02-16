@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import initiallizeFirebase from './../Pages/SignUp/Firebase/Firebase.init';
 import { createBrowserHistory } from 'history';
 
@@ -14,7 +14,6 @@ const useFirebase = () => {
     // const [admin, setAdmin] = useState(false)
 
     const auth = getAuth();
-    const googleProvider = new GoogleAuthProvider();
 
     const history = createBrowserHistory();
 
@@ -55,19 +54,6 @@ const useFirebase = () => {
                 setAuthError(error.message);
             })
             .finally(() => setIsLoading(false));
-    }
-    // Google sign in
-    const signInUsingGoogle = (location, history) => {
-        setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const user = result.user;
-                // saveUser(user.email, user.displayName, 'PUT')
-                // history.push('/')
-                setAuthError('');
-            }).catch((error) => {
-                setAuthError(error.message);
-            }).finally(() => setIsLoading(false));
     }
 
     // observer 
@@ -118,7 +104,6 @@ const useFirebase = () => {
         // admin,
         registerUser,
         loginUser,
-        signInUsingGoogle,
         logout,
     }
 }

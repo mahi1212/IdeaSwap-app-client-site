@@ -16,7 +16,7 @@ import { createBrowserHistory } from 'history';
 
 const SignIn = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { user, loginUser, isLoading, authError } = useAuth();
 
     const location = useLocation();
     const history = createBrowserHistory();
@@ -29,12 +29,9 @@ const SignIn = () => {
         setLoginData(newLoginData);
     }
 
-    // const handleGoogleSignIn = () => {
-    //     signInWithGoogle(location, history)
-    // }
-
     const handleLoginSubmit = (event) => {
         loginUser(loginData.email, loginData.password, location, history);
+        
         event.preventDefault();
     };
 
@@ -123,9 +120,8 @@ const SignIn = () => {
                             }
                             {/* Complex ternary operation for error*/}
                             {
-                                authError && <Alert sx={{ mt: 2 }} severity="error">{authError === 'Firebase: Error (auth/email-already-in-use).' ? [`${authError}==='Firebase: Error (auth/user-not-found).` ? 'Same email exist! Please change email' : 'Password should be at least 6 characters '] : 'User don\'t exist. Give correct password or Signup to make a new account'}</Alert>
+                                authError && <Alert sx={{ mt: 2 }} severity="error">{authError === 'Firebase: Error (auth/email-already-in-use).' ? [`${authError}==='Firebase: Error (auth/user-not-found).` ? 'Same email exist! Please change email' : 'Password should be at least 6 characters '] : 'User don\'t exist. Give correct password / Signup to make a new account'}</Alert>
                             }
-
                         </Box>
                     </Box>
                 </Grid>

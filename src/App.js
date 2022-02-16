@@ -14,6 +14,8 @@ import MyFeedback from './Pages/MyFeedback/MyFeedback';
 import Footer from './Pages/Shared/Footer/Footer';
 import Contact from './Pages/Contact/Contact';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/SignUp/PrivateRoute/PrivateRoute';
+import Test from './Pages/Home/Test/Test';
 
 function App() {
   return (
@@ -25,7 +27,15 @@ function App() {
             <Route path="/" element={<Home></Home>} />
             <Route path="home" element={<Home />} />
             <Route path="courses" element={<Courses />} />
-            <Route path='myFeedback' element={<MyFeedback />} />
+            <Route
+              path="myFeedback"
+              element={
+                <PrivateRoute>
+                  <MyFeedback />
+                </PrivateRoute>
+              }
+            />
+            {/* <Route path='myFeedback' element={<MyFeedback />} /> */}
             <Route path='contact' element={<Contact />} />
             <Route path="signUp" element={<SignUp />} />
             <Route path="signIn" element={<SignIn />} />

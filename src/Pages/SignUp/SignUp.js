@@ -31,6 +31,7 @@ const SignUp = () => {
 
     const handleSignUpSubmit = (event) => {
         registerUser(loginData.name, loginData.email, loginData.password)
+        alert('Successfully logged in!')
         event.preventDefault();
     };
 

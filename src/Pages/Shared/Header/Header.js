@@ -267,7 +267,6 @@ const Header = () => {
                             }}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}>
-
                             <MenuItem onClick={handleCloseUserMenu}>
                                 <NavLink
                                     to="/dashboard"
@@ -280,7 +279,7 @@ const Header = () => {
                             </MenuItem>
                             {user.email &&
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button onClick={logout}><Typography textAlign="center" sx={{ fontSize: 16 }}>SIGN OUT</Typography></Button>
+                                    <Button onClick={logout}><Typography textAlign="center" sx={{ fontSize: 12 }}>SIGN OUT FROM {user.email}</Typography></Button>
                                 </MenuItem>}
                         </Menu>
                     </Box>
