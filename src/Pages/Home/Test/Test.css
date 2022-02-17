@@ -2,33 +2,35 @@
   position: relative;
   /* padding-top: 10.25%; */
   margin: 10px;
+  padding: 10px 0;
   border-radius: 10px;
-  background-color: #EEEEEE;
+  background-color: #ccc;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
+  gap: 20px 10px;
 }
 
 .react-player {
-  /* position: absolute; */
+  width: 90vw;
+  /* padding: 10px 0; */
   top: 0;
   left: 0;
+}
+
+.info {
+  background-color: #fff;
+  width: 90vw;
   margin-bottom: 20px;
 }
-.info {
-  /* position: absolute;
-  top: 10px;
-  left: 51%; */
 
-}
-
-.title{
-    padding-left: 30px;
-    text-align: left;
-}
-
-.info .description{
-    text-align: left;
-    overflow-y: hidden ;
+/* For screen width more than 600px will work this code || media Query */
+@media only screen and (min-width: 601px) {
+  .react-player {
+    width: 48vw;
+  }
+  .info {
+    width: 48vw;
+  }
 }
