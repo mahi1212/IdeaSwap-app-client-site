@@ -1,0 +1,34 @@
+.player-wrapper {
+  position: relative;
+  /* padding-top: 10.25%; */
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #EEEEEE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.react-player {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+.info {
+  /* position: absolute;
+  top: 10px;
+  left: 51%; */
+
+}
+
+.title{
+    padding-left: 30px;
+    text-align: left;
+}
+
+.info .description{
+    text-align: left;
+    overflow-y: hidden ;
+}
