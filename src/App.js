@@ -15,7 +15,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Contact from './Pages/Contact/Contact';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/SignUp/PrivateRoute/PrivateRoute';
-import Test from './Pages/Home/Test/Test';
+import SingleCourse from './Pages/Courses/SingleCourse/SingleCourse';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<Home></Home>} />
             <Route path="home" element={<Home />} />
             <Route path="courses" element={<Courses />} />
-            <Route path="courses/:courseId" element={ <PrivateRoute><Test /></PrivateRoute> }/>
+            <Route path="courses/:courseId" element={ <PrivateRoute> <SingleCourse /></PrivateRoute> }/>
             <Route path='myFeedback' element={<MyFeedback />} />
             <Route path='contact' element={<Contact />} />
             <Route path="signUp" element={<SignUp />} />

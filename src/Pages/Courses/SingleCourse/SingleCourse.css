@@ -1,6 +1,5 @@
 .player-wrapper {
   position: relative;
-  /* padding-top: 10.25%; */
   margin: 10px;
   padding: 10px 0;
   border-radius: 10px;
@@ -14,7 +13,6 @@
 
 .react-player {
   width: 90vw;
-  /* padding: 10px 0; */
   top: 0;
   left: 0;
 }
