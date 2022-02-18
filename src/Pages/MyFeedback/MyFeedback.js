@@ -6,16 +6,25 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Chip from '@mui/material/Chip';
+import axios from 'axios'
 
 const MyFeedback = () => {
     const handleSubmit = (event) => {
+
+        const form = new FormData(event.currentTarget);
+        const data = {
+            username: form.get('name'),
+            description: form.get('description'),
+        };
+
+        console.log(data)
+        axios.post('http://localhost:5000/feedbacks', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('Feedback Added Successfully')
+                }
+            })
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            name: data.get('name'),
-            description: data.get('description'),
-        });
     };
     return (
         <div>
@@ -35,7 +44,7 @@ const MyFeedback = () => {
                             border: '1px solid gray'
                         }}
                     >
-                        <Chip label="Leave Your Review" variant="outlined" sx={{fontSize: '1.2rem'}} />
+                        <Chip label="Leave Your Review" variant="outlined" sx={{ fontSize: '1.2rem' }} />
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
