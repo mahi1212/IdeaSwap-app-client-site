@@ -37,6 +37,7 @@ const Header = () => {
         setAnchorElNav(null);
     };
 
+    console.log(user)
     return (
         <AppBar position="static" sx={{ backgroundColor: '#072227', py: 1 }}>
             <Container maxWidth="xl">
@@ -249,7 +250,7 @@ const Header = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open profile">
                             <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr: 1 }}>
-                                <Avatar alt="Profile pic" src="" sx={{ bgcolor: 'secondary.main' }} />
+                                <Avatar alt="Profile pic" src="" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -278,9 +279,8 @@ const Header = () => {
                                 </NavLink>
                             </MenuItem>
                             {user.email &&
-                                <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button onClick={logout}><Typography textAlign="center" sx={{ fontSize: 12 }}>SIGN OUT FROM {user.email}</Typography></Button>
-                                </MenuItem>}
+                                <Button onClick={logout} color="error" sx={{ width: '100%' }}>SIGN OUT - {user.displayName}</Button>
+                            }
                         </Menu>
                     </Box>
                 </Toolbar>

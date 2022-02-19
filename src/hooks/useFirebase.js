@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import initiallizeFirebase from './../Pages/SignUp/Firebase/Firebase.init';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 
 
 // initialize firebase
@@ -15,9 +15,9 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const history = createBrowserHistory();
+    // const history = createBrowserHistory();
 
-    const registerUser = (name, email, password) => {
+    const registerUser = (name, email, password, navigate) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -32,7 +32,7 @@ const useFirebase = () => {
                 }).then(() => {}).catch((error) => {
                     setAuthError(error.message);
                 });
-                history.push('/')
+                navigate('/');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -41,13 +41,13 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    const loginUser = (email, password, location, history) => {
+    const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/home'
-                history.replace(destination)
-
+                // Redirecting to previous page after login using useNavigate()
+                const from = location?.state?.from || '/courses'
+                navigate(from , {replace: true});
                 setAuthError('');
             })
             .catch((error) => {

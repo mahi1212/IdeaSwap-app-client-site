@@ -1,12 +1,19 @@
 import React from 'react';
 import './PageNotFound.css'
 import errorPage from '../../Images/errorPage.png';
+import Header from '../Shared/Header/Header';
+import Footer from './../Shared/Footer/Footer';
 
 const PageNotFound = () => {
     return (
-        <div>
-            <img src={errorPage} alt="Page-Not-Found"></img>
-        </div>
+        <>
+            <Header></Header>
+            <div>
+                <img src={errorPage} alt="Page-Not-Found"></img>
+            </div>
+            <Footer></Footer>
+        </>
+
     );
 };
 
