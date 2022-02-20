@@ -19,6 +19,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import HomeIcon from '@mui/icons-material/Home';
+import ManageUser from '../ManageUser/ManageUser';
 
 
 const drawerWidth = 250;
@@ -59,7 +60,7 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <NavLink to="/dashboard/manageReview" style={{ color: '#000', textDecoration: 'none' }}>
+                <NavLink to="/dashboard/manageUser" style={{ color: '#000', textDecoration: 'none' }}>
                     <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
                         <ManageAccountsIcon sx={{mr: 2}}/>
                         MANAGE USERS
@@ -145,8 +146,9 @@ function Dashboard(props) {
 
                 <Routes>
                     <Route path="/" element={<DashboardHome />} />
-                    <Route path="/dashboard/manageReview" element={<ManageReview />} />
                     <Route path="/dashboard/addProduct" element={<AddProduct />} />
+                    <Route path="/dashboard/manageReview" element={<ManageReview />} />
+                    <Route path="/dashboard/manageUser" element={<ManageUser />} />
                 </Routes>
             </Box>
         </Box >
