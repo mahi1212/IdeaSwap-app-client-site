@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
 import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from '@mui/material';
 
 const ManageReview = () => {
@@ -32,7 +33,7 @@ const ManageReview = () => {
     return (
         <div>
             {
-                feedbacks.length === 0 ? <CircularProgress /> : <Box sx={{ flexGrow: 1 }}>
+                feedbacks.length === 0 ? <Box><Skeleton variant="rectangular" width={350} height={200} /> <CircularProgress /></Box>: <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
                             feedbacks.map((feedback, index) =>
@@ -50,8 +51,9 @@ const ManageReview = () => {
                                         </CardActionArea>
                                         <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                                             <Button size="small" color="error" onClick={() => handleDeleteFeedback(feedback._id)}>
-                                                DELETE
+                                                DELETE REVIEW 
                                             </Button>
+                                            {/* ADMIN HAS NO CHOICE TO UODATE REVIEW */}
                                         </CardActions>
                                     </Card>
                                 </Grid>

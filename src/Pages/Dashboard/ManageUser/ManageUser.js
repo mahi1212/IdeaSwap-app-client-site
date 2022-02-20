@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
 import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from '@mui/material';
 
 
@@ -32,7 +33,7 @@ const ManageUser = () => {
     return (
         <div>
             {
-                users.length === 0 ? <CircularProgress /> : <Box sx={{ flexGrow: 1 }}>
+                users.length === 0 ? <Box><Skeleton variant="rectangular" width={350} height={150} /> <CircularProgress /></Box>: <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
                             users.map((user, index) =>
@@ -50,7 +51,7 @@ const ManageUser = () => {
                                         </CardActionArea>
                                         <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                                             <Button size="small" color="error" onClick={() => handleDeleteUser(user._id)}>
-                                                DELETE
+                                                REMOVE USER
                                             </Button>
                                         </CardActions>
                                     </Card>

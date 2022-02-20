@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import { Typography, CircularProgress } from '@mui/material';
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
-
+// Adding config to the PIE CHART
 const COLORS = ["#0B4619", "#1A374D", "#1A1A40"];
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -69,9 +69,6 @@ const DashboardHome = () => {
         { name: "REVIEWS", value: feedback }
     ];
 
-    console.log(courses.length)
-    console.log(users.length)
-    console.log(feedbacks.length)
     return (
         <>
             <Grid container spacing={2}>
@@ -107,12 +104,11 @@ const DashboardHome = () => {
                     <PieChart width={300} height={300}>
                         <Pie
                             data={data}
-                            cx={140}
+                            cx={150}
                             cy={140}
                             labelLine={false}
                             label={renderCustomizedLabel}
                             outerRadius={130}
-                            // fill="#000"
                             dataKey="value"
                         >
                             {data.map((entry, index) => (
