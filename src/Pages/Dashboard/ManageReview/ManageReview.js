@@ -21,7 +21,7 @@ const ManageReview = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
+                        alert('deleted successfully :)');
                         const remainingUsers = feedbacks.filter(user => user._id !== id);
                         setFeedbacks(remainingUsers);
                     }
