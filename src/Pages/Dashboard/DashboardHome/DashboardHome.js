@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Typography } from '@mui/material';
-import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import { Typography, CircularProgress } from '@mui/material';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
-const data = [
-    { name: "USERS", value: 400 },
-    { name: "COURSES", value: 300 },
-    { name: "REVIEWS", value: 300 }
-];
 
 const COLORS = ["#0B4619", "#1A374D", "#1A1A40"];
 const RADIAN = Math.PI / 180;
@@ -41,13 +36,49 @@ const renderCustomizedLabel = ({
 
 
 const DashboardHome = () => {
+    const [courses, setCourses] = useState([])
+    const [users, setUsers] = useState([])
+    const [feedbacks, setFeedbacks] = useState([])
+
+    // Fetching for state
+    useEffect(() => {
+        fetch('http://localhost:5000/courses')
+            .then(res => res.json())
+            .then(data => setCourses(data))
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/feedbacks')
+            .then(res => res.json())
+            .then(data => setFeedbacks(data))
+    }, [])
+
+    const user = users.length
+    const course = courses.length
+    const feedback = feedbacks.length
+
+    const data = [
+        { name: "USERS", value: user },
+        { name: "COURSES", value: course },
+        { name: "REVIEWS", value: feedback }
+    ];
+
+    console.log(courses.length)
+    console.log(users.length)
+    console.log(feedbacks.length)
     return (
         <>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                     <Paper elevation={2} sx={{ background: '#0B4619' }}>
                         <Box sx={{ py: 3 }}>
-                            <Typography variant='h2' sx={{ color: '#fff' }}> 3 </Typography>
+                            {courses.length === 0 ? <CircularProgress /> : <Typography variant='h2' sx={{ color: '#fff' }}> {courses.length} </Typography>}
                             <Typography variant='h5' sx={{ mt: 2, color: '#fff', py: 1, fontWeight: 400 }}>COURSES WE OFFER </Typography>
                         </Box>
                     </Paper>
@@ -55,7 +86,7 @@ const DashboardHome = () => {
                 <Grid item xs={12} md={4}>
                     <Paper elevation={2} sx={{ background: '#1A374D' }}>
                         <Box sx={{ py: 3 }}>
-                            <Typography variant='h2' sx={{ color: '#fff' }}> 3 </Typography>
+                            {courses.length === 0 ? <CircularProgress /> : <Typography variant='h2' sx={{ color: '#fff' }}> {users.length}</Typography>}
                             <Typography variant='h5' sx={{ mt: 2, color: '#fff', py: 1, fontWeight: 400 }}>USER HAS ACCOUNT</Typography>
                         </Box>
                     </Paper>
@@ -63,30 +94,35 @@ const DashboardHome = () => {
                 <Grid item xs={12} md={4}>
                     <Paper elevation={2} sx={{ background: '#1A1A40' }}>
                         <Box sx={{ py: 3 }}>
-                            <Typography variant='h2' sx={{ color: '#fff' }}> 3 </Typography>
+                            {courses.length === 0 ? <CircularProgress /> : <Typography variant='h2' sx={{ color: '#fff' }}>{feedbacks.length}</Typography>}
                             <Typography variant='h5' sx={{ mt: 2, color: '#fff', py: 1, fontWeight: 400 }}>TOTAL REVIEW</Typography>
                         </Box>
                     </Paper>
                 </Grid>
             </Grid>
-            <Typography variant='h5' sx={{ textAlign: 'left', mt: 2 }}>HERE IS VISUAL PIE CHART REPRESENTATION</Typography>
-            <PieChart width={370} height={370}>
-                <Pie
-                    data={data}
-                    cx={200}
-                    cy={200}
-                    labelLine={true}
-                    label={renderCustomizedLabel}
-                    outerRadius={150}
-                    // fill="#000"
-                    dataKey="value"
-                >
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                </Pie>
-                <Tooltip />
-            </PieChart>
+            <div>
+                <Typography variant='h5' sx={{ textAlign: 'left', mt: 2 }}>PIE CHART REPRESENTATION</Typography>
+
+                <Paper sx={{ py: 3 }} elevation={5}>
+                    <PieChart width={300} height={300}>
+                        <Pie
+                            data={data}
+                            cx={140}
+                            cy={140}
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={130}
+                            // fill="#000"
+                            dataKey="value"
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                    </PieChart>
+                </Paper>
+            </div>
         </>
     );
 };
