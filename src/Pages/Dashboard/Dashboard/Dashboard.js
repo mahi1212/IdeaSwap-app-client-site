@@ -8,7 +8,6 @@ import {
     useNavigate
 } from "react-router-dom";
 import ManageReview from '../ManageReview/ManageReview';
-import AddProduct from '../AddProduct/AddProduct';
 import DashboardHome from './../DashboardHome/DashboardHome';
 import { Alert, Button, AppBar, Box, CssBaseline, Divider, Drawer, Typography, IconButton, List, ListItem, Toolbar } from '@mui/material';
 import logo from '../../../Images/IdeaLogo.png';
@@ -20,6 +19,8 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import HomeIcon from '@mui/icons-material/Home';
 import ManageUser from '../ManageUser/ManageUser';
+import AddCourses from '../AddCourses/AddCourses';
+import ManageCourses from '../ManageCourses/ManageCourses';
 
 
 const drawerWidth = 250;
@@ -46,10 +47,17 @@ function Dashboard(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <NavLink to="/dashboard/addProduct" style={{ color: '#000', textDecoration: 'none' }}>
+                <NavLink to="/dashboard/addCourses" style={{ color: '#000', textDecoration: 'none' }}>
                     <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
                         <ProductionQuantityLimitsIcon sx={{mr: 2}}/>
-                        ADD PRODUCTS
+                        ADD COURSE
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to="/dashboard/manageCourses" style={{ color: '#000', textDecoration: 'none' }}>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
+                        <ManageAccountsIcon sx={{mr: 2}}/>
+                        REMOVE COURSE
                     </ListItem>
                 </NavLink>
                 <Divider />
@@ -146,7 +154,8 @@ function Dashboard(props) {
 
                 <Routes>
                     <Route path="/" element={<DashboardHome />} />
-                    <Route path="/dashboard/addProduct" element={<AddProduct />} />
+                    <Route path="/dashboard/addCourses" element={<AddCourses />} />
+                    <Route path="/dashboard/manageCourses" element={<ManageCourses />} />
                     <Route path="/dashboard/manageReview" element={<ManageReview />} />
                     <Route path="/dashboard/manageUser" element={<ManageUser />} />
                 </Routes>

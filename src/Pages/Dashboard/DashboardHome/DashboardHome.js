@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Typography, CircularProgress } from '@mui/material';
+import { Typography, CircularProgress, Card } from '@mui/material';
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 // Adding config to the PIE CHART
@@ -100,7 +100,7 @@ const DashboardHome = () => {
             <div>
                 <Typography variant='h5' sx={{ textAlign: 'left', mt: 2 }}>PIE CHART REPRESENTATION</Typography>
 
-                <Paper sx={{ py: 3 }} elevation={5}>
+                <Card sx={{ py: 3 }} >
                     <PieChart width={300} height={300}>
                         <Pie
                             data={data}
@@ -117,7 +117,7 @@ const DashboardHome = () => {
                         </Pie>
                         <Tooltip />
                     </PieChart>
-                </Paper>
+                </Card>
             </div>
         </>
     );

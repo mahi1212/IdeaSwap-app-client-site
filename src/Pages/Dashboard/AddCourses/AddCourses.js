@@ -1,5 +1,4 @@
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -9,7 +8,7 @@ import Chip from '@mui/material/Chip';
 import axios from 'axios'
 import { Typography } from '@mui/material';
 
-const AddProduct = () => {
+const AddCourses = () => {
     const handleSubmit = (event) => {
         const form = new FormData(event.currentTarget);
         const data = {
@@ -37,13 +36,11 @@ const AddProduct = () => {
         <Grid container component="main" sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box
                 sx={{
-                    mx: 4,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     px: 3,
                     py: 2,
-                    maxWidth: 'md',
                     boxShadow: 1,
                     borderRadius: 1,
                 }}
@@ -90,7 +87,7 @@ const AddProduct = () => {
                         id="textfield"
                     />
                     <Box sx={{ px:3, py:2, textAlign: 'left'}}>
-                        <Typography variant='contain'>Add Video Details: </Typography>
+                        <Typography variant='contain'>Add Video Details:</Typography>
                         <TextField
                             margin="normal"
                             required
@@ -111,6 +108,7 @@ const AddProduct = () => {
                         />
                         <TextField
                             margin="normal"
+                            required
                             fullWidth
                             name="VideoLink2"
                             label="Enter Second Video Link"
@@ -119,6 +117,7 @@ const AddProduct = () => {
                         />
                         <TextField
                             margin="normal"
+                            required
                             fullWidth
                             name="VideoTopic2"
                             label="Enter Second Video Topic"
@@ -137,4 +136,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddCourses;

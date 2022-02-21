@@ -15,10 +15,10 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/SignUp/PrivateRoute/PrivateRoute';
 import SingleCourse from './Pages/Courses/SingleCourse/SingleCourse';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
-import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import ManageReview from './Pages/Dashboard/ManageReview/ManageReview';
-import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import ManageUser from './Pages/Dashboard/ManageUser/ManageUser';
+import AddCourses from './Pages/Dashboard/AddCourses/AddCourses';
+import ManageCourses from './Pages/Dashboard/ManageCourses/ManageCourses';
 
 function App() {
   return (
@@ -29,7 +29,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>} >
-              <Route path='/dashboard/addProduct' element={<AddProduct />} />
+              <Route path='/dashboard/addCourses' element={<AddCourses />} />
+              <Route path='/dashboard/ManageCourses' element={<ManageCourses />} />
               <Route path='/dashboard/manageReview' element={<ManageReview />} />
               <Route path='/dashboard/manageUser' element={<ManageUser />} />
             </Route>
