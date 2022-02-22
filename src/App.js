@@ -19,6 +19,7 @@ import ManageReview from './Pages/Dashboard/ManageReview/ManageReview';
 import ManageUser from './Pages/Dashboard/ManageUser/ManageUser';
 import AddCourses from './Pages/Dashboard/AddCourses/AddCourses';
 import ManageCourses from './Pages/Dashboard/ManageCourses/ManageCourses';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>} >
               <Route path='/dashboard/addCourses' element={<AddCourses />} />
+              <Route path='/dashboard/makeAdmin' element={<MakeAdmin />} />
               <Route path='/dashboard/ManageCourses' element={<ManageCourses />} />
               <Route path='/dashboard/manageReview' element={<ManageReview />} />
               <Route path='/dashboard/manageUser' element={<ManageUser />} />

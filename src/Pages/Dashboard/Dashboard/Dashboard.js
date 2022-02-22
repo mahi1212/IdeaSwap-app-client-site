@@ -18,9 +18,11 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import HomeIcon from '@mui/icons-material/Home';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import ManageUser from '../ManageUser/ManageUser';
 import AddCourses from '../AddCourses/AddCourses';
 import ManageCourses from '../ManageCourses/ManageCourses';
+import MakeAdmin from './../MakeAdmin/MakeAdmin';
 
 
 const drawerWidth = 250;
@@ -44,6 +46,13 @@ function Dashboard(props) {
                     <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
                         <GridViewIcon sx={{mr: 2}}/>
                         DASHBOARD
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to="/dashboard/makeAdmin" style={{ color: '#000', textDecoration: 'none' }}>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
+                        <AdminPanelSettingsIcon sx={{mr: 2}}/>
+                        MAKE ADMIN
                     </ListItem>
                 </NavLink>
                 <Divider />
@@ -154,6 +163,7 @@ function Dashboard(props) {
 
                 <Routes>
                     <Route path="/" element={<DashboardHome />} />
+                    <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
                     <Route path="/dashboard/addCourses" element={<AddCourses />} />
                     <Route path="/dashboard/manageCourses" element={<ManageCourses />} />
                     <Route path="/dashboard/manageReview" element={<ManageReview />} />

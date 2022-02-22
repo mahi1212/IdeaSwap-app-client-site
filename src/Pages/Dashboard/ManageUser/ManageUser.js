@@ -51,7 +51,7 @@ const ManageUser = () => {
                                         </CardActionArea>
                                         <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                                             <Button size="small" color="error" onClick={() => handleDeleteUser(user._id)}>
-                                                REMOVE USER
+                                                BLOCK USER
                                             </Button>
                                         </CardActions>
                                     </Card>
