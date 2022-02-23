@@ -16,7 +16,6 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import HomeIcon from '@mui/icons-material/Home';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import ManageUser from '../ManageUser/ManageUser';
@@ -30,7 +29,7 @@ const drawerWidth = 250;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { user, logout, admin } = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate()
 
     const handleDrawerToggle = () => {
@@ -84,11 +83,6 @@ function Dashboard(props) {
                         MANAGE USERS
                     </ListItem>
                 </NavLink>
-                <Divider />
-                <ListItem button onClick={logout} sx={{ py: 3, fontSize: '1.2rem' }}>
-                    <PowerSettingsNewIcon sx={{ mr: 2 }} />
-                    LOGOUT
-                </ListItem>
             </List>
         </Box >
     );
