@@ -9,6 +9,9 @@ import Chip from '@mui/material/Chip';
 import axios from 'axios'
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const MyFeedback = () => {
     const handleSubmit = (event) => {
@@ -27,28 +30,30 @@ const MyFeedback = () => {
             })
         event.preventDefault();
     };
-
+    useEffect(() => {
+        AOS.init();//initializing AOS
+    }, [])
     return (
         <>
             <Header></Header>
             <div>
                 <Grid container component="main" sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <CssBaseline />
-                    <Grid item xs={12} sm={8} md={4} >
+                    <Grid item xs={12} sm={8} md={4} data-aos="fade-down">
                         <Box
                             sx={{
+                                boxShadow: 5,
                                 my: 2,
                                 mx: 4,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 px: 3,
-                                py: 6,
+                                py: 8,
                                 borderRadius: 1,
-                                border: '1px solid gray'
                             }}
                         >
-                            <Chip label="Leave Your Review" variant="outlined" sx={{ fontSize: '1.2rem' }} />
+                            <Chip label="Leave Your Review" variant="outlined" sx={{ fontSize: '1.3rem', color: '#fff', background: '#5D8BF4' }} />
                             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                                 <TextField
                                     margin="normal"
