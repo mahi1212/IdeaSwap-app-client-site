@@ -18,7 +18,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
 
 const Header = () => {
-    const { user, logout } = useAuth()
+    const { user, logout, admin } = useAuth()
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -107,20 +107,6 @@ const Header = () => {
                                 Contact
                             </NavLink>
                         </Button>
-
-                        <Button
-                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }} >
-                            <NavLink
-                                onClick={handleCloseNavMenu}
-                                to="/signIn"
-                                style={({ isActive }) =>
-                                    isActive ? { color: '#86C6F4', textDecoration: "none", fontWeight: '600' }
-                                        : { color: '#fff', textDecoration: 'none' }
-                                }>
-                                SignIn
-                            </NavLink>
-                        </Button>
-
                         <Button
                             sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }}>
                             <NavLink
@@ -133,6 +119,20 @@ const Header = () => {
                                 SignUp
                             </NavLink>
                         </Button>
+                        <Button
+                            sx={{ fontSize: 18, my: 2, px: 2, display: 'block' }} >
+                            <NavLink
+                                onClick={handleCloseNavMenu}
+                                to="/signIn"
+                                style={({ isActive }) =>
+                                    isActive ? { color: '#86C6F4', textDecoration: "none", fontWeight: '600' }
+                                        : { color: '#fff', textDecoration: 'none' }
+                                }>SignIn
+                            </NavLink>
+                        </Button>
+                        {
+                            user.email && <Button onClick={logout} sx={{ fontSize: 18, my: 2, px: 2, display: 'block', background: '#072227', color: '#fff' }}>LOG OUT {user.displayName}</Button>
+                        }
                     </Box>
                     {/* -------------------------small screen customization starts here--------------------- */}
                     {/* MenuIcon for small screen*/}
@@ -231,6 +231,9 @@ const Header = () => {
                                     <Typography textAlign="center" sx={{ fontSize: 18 }}>SIGNUP</Typography>
                                 </NavLink>
                             </MenuItem>
+                            {user.email && <MenuItem onClick={handleCloseNavMenu}>
+                                <Button onClick={logout} sx={{ fontSize: 18 }}>Log Out</Button>
+                            </MenuItem>}
                         </Menu>
                     </Box>
                     {/* --------------Small screen Logo-------------- */}
@@ -246,43 +249,41 @@ const Header = () => {
                         </Link>
                         IdeaSwap
                     </Typography>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open profile">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr: 1 }}>
-                                <Avatar alt="Profile pic" src="" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}>
-                            <MenuItem onClick={handleCloseUserMenu}>
-                                <NavLink
-                                    to="/dashboard"
-                                    style={isActive => ({
-                                        color: isActive ? "black" : "blue",
-                                        textDecoration: "none"
-                                    })}>
-                                    <Typography textAlign="center" sx={{ fontSize: 16 }}>DASHBOARD</Typography>
-                                </NavLink>
-                            </MenuItem>
-                            {user.email &&
-                                <Button onClick={logout} color="error" sx={{ width: '100%' }}>SIGN OUT - {user.displayName}</Button>
-                            }
-                        </Menu>
-                    </Box>
+                    {admin &&
+                        <Box sx={{ flexGrow: 0 }}>
+                            <Tooltip title="Open profile">
+                                <IconButton onClick={handleOpenUserMenu} sx={{ py: 0, pr: 1 }}>
+                                    <Avatar alt="Profile pic" src="" />
+                                </IconButton>
+                            </Tooltip>
+                            <Menu
+                                sx={{ mt: '45px' }}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}>
+                                <MenuItem onClick={handleCloseUserMenu}>
+                                    <NavLink
+                                        to="/dashboard"
+                                        style={isActive => ({
+                                            color: isActive ? "black" : "blue",
+                                            textDecoration: "none"
+                                        })}>
+                                        <Typography textAlign="center" sx={{ fontSize: 16 }}>DASHBOARD</Typography>
+                                    </NavLink>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
+                    }
                 </Toolbar>
             </Container>
         </AppBar >

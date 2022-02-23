@@ -80,7 +80,7 @@ const Courses = () => {
                                             courses.slice(0, 6).map(course => <Course course={course} id={course._id}></Course>)
                                     }
                                     {
-                                        path === '/home' && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', width: '100%' }}>
+                                        path !== '/courses' && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', width: '100%' }}>
                                             <NavLink to='/courses' style={{
                                                 background: '#753188',
                                                 color: '#fff',

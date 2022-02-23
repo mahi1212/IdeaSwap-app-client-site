@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    // const [admin, setAdmin] = useState(false)
+    const [admin, setAdmin] = useState(false)
 
     const auth = getAuth();
 
@@ -70,11 +70,11 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
     
-    // useEffect(() => {
-    //     fetch(`https://powerful-brushlands-32905.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
 
     const logout = () => {
@@ -101,7 +101,7 @@ const useFirebase = () => {
         user,
         isLoading,
         authError,
-        // admin,
+        admin,
         registerUser,
         loginUser,
         logout,

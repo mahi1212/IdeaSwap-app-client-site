@@ -30,8 +30,7 @@ const drawerWidth = 250;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { user, logout } = useAuth();
-    // adminlogout
+    const { user, logout, admin } = useAuth();
     const navigate = useNavigate()
 
     const handleDrawerToggle = () => {
@@ -41,51 +40,53 @@ function Dashboard(props) {
     const drawer = (
         <Box>
             <List sx={{ border: '2px solid #ccc', borderRadius: '20px 0 20px 20px' }}>
-                <Box sx={{display: 'flex', alignItems:'center'}}><img src={logo} alt="img" style={{ height: '60px', width: '60px' }}></img> <Typography sx={{ mt: 1, fontWeight: '600' }}> IDEA SWAP</Typography></Box>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}><img src={logo} alt="img" style={{ height: '60px', width: '60px' }}></img> <Typography sx={{ mt: 1, fontWeight: '600' }}> IDEA SWAP</Typography></Box>
                 <NavLink to="/dashboard" style={{ color: '#000', textDecoration: 'none', }}>
                     <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
-                        <GridViewIcon sx={{mr: 2}}/>
+                        <GridViewIcon sx={{ mr: 2 }} />
                         DASHBOARD
                     </ListItem>
                 </NavLink>
                 <Divider />
                 <NavLink to="/dashboard/makeAdmin" style={{ color: '#000', textDecoration: 'none' }}>
-                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
-                        <AdminPanelSettingsIcon sx={{mr: 2}}/>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
+                        <AdminPanelSettingsIcon sx={{ mr: 2 }} />
                         MAKE ADMIN
                     </ListItem>
                 </NavLink>
                 <Divider />
+                
                 <NavLink to="/dashboard/addCourses" style={{ color: '#000', textDecoration: 'none' }}>
-                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
-                        <ProductionQuantityLimitsIcon sx={{mr: 2}}/>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
+                        <ProductionQuantityLimitsIcon sx={{ mr: 2 }} />
                         ADD COURSE
                     </ListItem>
                 </NavLink>
                 <Divider />
+
                 <NavLink to="/dashboard/manageCourses" style={{ color: '#000', textDecoration: 'none' }}>
-                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
-                        <ManageAccountsIcon sx={{mr: 2}}/>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
+                        <ManageAccountsIcon sx={{ mr: 2 }} />
                         REMOVE COURSE
                     </ListItem>
                 </NavLink>
                 <Divider />
                 <NavLink to="/dashboard/manageReview" style={{ color: '#000', textDecoration: 'none' }}>
-                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
-                        <RateReviewIcon sx={{mr: 2}}/>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
+                        <RateReviewIcon sx={{ mr: 2 }} />
                         MANAGE REVIEW
                     </ListItem>
                 </NavLink>
                 <Divider />
                 <NavLink to="/dashboard/manageUser" style={{ color: '#000', textDecoration: 'none' }}>
-                    <ListItem button sx={{ py: 3, fontSize: '1.2rem'}}>
-                        <ManageAccountsIcon sx={{mr: 2}}/>
+                    <ListItem button sx={{ py: 3, fontSize: '1.2rem' }}>
+                        <ManageAccountsIcon sx={{ mr: 2 }} />
                         MANAGE USERS
                     </ListItem>
                 </NavLink>
                 <Divider />
                 <ListItem button onClick={logout} sx={{ py: 3, fontSize: '1.2rem' }}>
-                    <PowerSettingsNewIcon sx={{mr: 2}} />
+                    <PowerSettingsNewIcon sx={{ mr: 2 }} />
                     LOGOUT
                 </ListItem>
             </List>
@@ -117,9 +118,9 @@ function Dashboard(props) {
                     <Alert severity="info" sx={{ flexGrow: 1 }}>
                         WELCOME — <strong> {user.displayName.toUpperCase()}</strong>
                     </Alert>
-                    
+
                     <Button variant="contained" onClick={() => navigate('/home')}>
-                        <HomeIcon sx={{height: '30px'}}/>
+                        <HomeIcon sx={{ height: '30px' }} />
                     </Button>
                 </Toolbar>
             </AppBar>

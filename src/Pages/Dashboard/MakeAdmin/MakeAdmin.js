@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleOnSubmit = e =>{
         const user = {email}
-        fetch('http://localhost:5000/users  ', {
+        fetch('http://localhost:5000/users', {
             method: 'PUT',
             headers:{
                 'content-type' : 'application/json'
