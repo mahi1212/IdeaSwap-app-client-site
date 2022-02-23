@@ -9,7 +9,7 @@ import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from
 const ManageUser = () => {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://nameless-beyond-49150.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
@@ -17,7 +17,7 @@ const ManageUser = () => {
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure to delete user?');
         if (proceed) {
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://nameless-beyond-49150.herokuapp.com/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

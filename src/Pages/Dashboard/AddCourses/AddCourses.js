@@ -22,7 +22,7 @@ const AddCourses = () => {
             ]
         };
 
-        axios.post('http://localhost:5000/courses', data)
+        axios.post('https://nameless-beyond-49150.herokuapp.com/courses', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Course Added Successfully')

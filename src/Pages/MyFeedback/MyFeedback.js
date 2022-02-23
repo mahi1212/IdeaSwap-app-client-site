@@ -22,7 +22,7 @@ const MyFeedback = () => {
         };
 
         // Posting data using axios 
-        axios.post('http://localhost:5000/feedbacks', data)
+        axios.post('https://nameless-beyond-49150.herokuapp.com/feedbacks', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Feedback Added Successfully')

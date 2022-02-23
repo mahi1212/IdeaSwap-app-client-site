@@ -10,7 +10,7 @@ import Footer from '../../Shared/Footer/Footer';
 const Courses = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://nameless-beyond-49150.herokuapp.com/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])

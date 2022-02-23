@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 const FeedBack = () => {
     const [feedbacks, setFeedbacks] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/feedbacks')
+        fetch('https://nameless-beyond-49150.herokuapp.com/feedbacks')
         .then(res => res.json())
         .then(data => setFeedbacks(data))
     }, [])
