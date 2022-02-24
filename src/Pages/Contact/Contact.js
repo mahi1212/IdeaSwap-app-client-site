@@ -17,7 +17,7 @@ const Contact = () => {
     }, [])
 
     function sendEmail(e) {
-        emailjs.sendForm('service_nj5czjb', 'template_yrncu1m', form.current, 'user_fagxX9BV52kbsmVZAbxis')
+        emailjs.sendForm('service_jjhtxzt', 'template_njza2kl', form.current, 'user_0KA7wjoGRk8rOP5DKlqn4')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
