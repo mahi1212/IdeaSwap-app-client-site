@@ -11,6 +11,7 @@
   <li>Registration or login system can handle errors.</li>
   <li>Admin can access the dashboard. Courses add or deletion, review or user management operations like blocking users or deleting review could be done. Also admin can make other admin.</li>
 </ul>
+<bold>IF YOU WANT TO SEE ADMIN DASHBOARD email: mahi121.mr@gmail.com</bold>
 
 
 
