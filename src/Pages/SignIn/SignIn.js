@@ -126,10 +126,16 @@ const SignIn = () => {
                                     authError && <Alert sx={{ mt: 2 }} severity="error">{authError === 'Firebase: Error (auth/email-already-in-use).' ? [`${authError}==='Firebase: Error (auth/user-not-found).` ? 'Same email exist! Please change email' : 'Password should be at least 6 characters '] : 'User don\'t exist. Give correct password / Signup to make a new account'}</Alert>
                                 }
                             </Box>
+                            <Typography variant="body2" color="text.secondary" align="center">
+                                <br />
+                                Admin Email : admin@gmail.com | Password : admin123 (Visit Dashboard Here) <br /> <br />
+                                User email: Make your own user :)
+                            </Typography>
                         </Box>
                     </Grid>
                 </Grid>
             </div>
+
             <Footer></Footer>
         </>
 
