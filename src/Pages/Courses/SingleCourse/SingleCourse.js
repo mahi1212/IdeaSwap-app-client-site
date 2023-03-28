@@ -12,13 +12,13 @@ const SingleCourse = () => {
     const [videos, setVideos] = useState([])
 
     useEffect(() => {
-        fetch(`https://nameless-beyond-49150.herokuapp.com/courses/${courseId}`)
+        fetch(`https://idea-swap.onrender.com/courses/${courseId}`)
             .then(res => res.json())
             .then(data => setCourse(data))
     }, [courseId])
 
     useEffect(() => {
-        fetch(`https://nameless-beyond-49150.herokuapp.com/courses/${courseId}`)
+        fetch(`https://idea-swap.onrender.com/courses/${courseId}`)
             .then(res => res.json())
             .then(data => setVideos(data.videos))
     }, [courseId])

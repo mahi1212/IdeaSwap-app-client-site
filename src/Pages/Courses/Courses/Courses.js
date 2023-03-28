@@ -10,7 +10,7 @@ import Footer from '../../Shared/Footer/Footer';
 const Courses = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/courses')
+        fetch('https://idea-swap.onrender.com/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])

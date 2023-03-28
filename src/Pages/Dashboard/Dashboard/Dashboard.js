@@ -31,7 +31,7 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { user } = useAuth();
     const navigate = useNavigate()
-
+    console.log(user)
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -109,9 +109,9 @@ function Dashboard(props) {
                     >
                         <MenuOpenIcon />
                     </IconButton>
-                    <Alert severity="info" sx={{ flexGrow: 1 }}>
-                        WELCOME — <strong> {user.displayName.toUpperCase()}</strong>
-                    </Alert>
+                    {user.displayName !== null && <Alert severity="info" sx={{ flexGrow: 1 }}>
+                        WELCOME — <strong> {user.displayName}</strong>
+                    </Alert>}
 
                     <Button variant="contained" onClick={() => navigate('/home')}>
                         <HomeIcon sx={{ height: '30px' }} />

@@ -9,15 +9,18 @@ import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from
 const ManageUser = () => {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/users')
+        fetch('https://idea-swap.onrender.com/users')
             .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+            .then(data => {
+                const adminUsers = data.filter(user => user.role !== 'admin');
+                setUsers(adminUsers);
+            })
+    }, []);
 
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure to delete user?');
         if (proceed) {
-            fetch(`https://nameless-beyond-49150.herokuapp.com/users/${id}`, {
+            fetch(`https://idea-swap.onrender.com/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

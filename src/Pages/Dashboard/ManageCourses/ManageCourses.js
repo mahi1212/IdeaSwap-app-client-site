@@ -8,14 +8,14 @@ import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from
 const ManageCourses = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/courses')
+        fetch('https://idea-swap.onrender.com/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            fetch(`https://nameless-beyond-49150.herokuapp.com/courses/${id}`, {
+            fetch(`https://idea-swap.onrender.com/courses/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

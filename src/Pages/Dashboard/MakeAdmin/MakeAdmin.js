@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleOnSubmit = e =>{
         const user = {email}
-        fetch('https://nameless-beyond-49150.herokuapp.com/users', {
+        fetch('https://idea-swap.onrender.com/users', {
             method: 'PUT',
             headers:{
                 'content-type' : 'application/json'

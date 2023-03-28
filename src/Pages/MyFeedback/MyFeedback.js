@@ -22,7 +22,7 @@ const MyFeedback = () => {
         };
 
         // Posting data using axios 
-        axios.post('https://nameless-beyond-49150.herokuapp.com/feedbacks', data)
+        axios.post('https://idea-swap.onrender.com/feedbacks', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Feedback Added Successfully')

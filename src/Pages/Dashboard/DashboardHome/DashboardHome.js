@@ -42,19 +42,19 @@ const DashboardHome = () => {
 
     // Fetching for state
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/courses')
+        fetch('https://idea-swap.onrender.com/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
 
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/users')
+        fetch('https://idea-swap.onrender.com/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
 
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/feedbacks')
+        fetch('https://idea-swap.onrender.com/feedbacks')
             .then(res => res.json())
             .then(data => setFeedbacks(data))
     }, [])

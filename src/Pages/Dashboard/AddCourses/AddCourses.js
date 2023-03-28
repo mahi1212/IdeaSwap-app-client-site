@@ -22,7 +22,7 @@ const AddCourses = () => {
             ]
         };
 
-        axios.post('https://nameless-beyond-49150.herokuapp.com/courses', data)
+        axios.post('https://idea-swap.onrender.com/courses', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Course Added Successfully')

@@ -8,7 +8,7 @@ import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from
 const ManageReview = () => {
     const [feedbacks, setFeedbacks] = useState([])
     useEffect(() => {
-        fetch('https://nameless-beyond-49150.herokuapp.com/feedbacks')
+        fetch('https://idea-swap.onrender.com/feedbacks')
             .then(res => res.json())
             .then(data => setFeedbacks(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageReview = () => {
     const handleDeleteFeedback = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`https://nameless-beyond-49150.herokuapp.com/feedbacks/${id}`, {
+            fetch(`https://idea-swap.onrender.com/feedbacks/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
