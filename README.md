@@ -1,6 +1,6 @@
 # Web App Name : Idea Swap
 
-## Live link : https://642240a6e19e6b33e7fc267a--idea-swap.netlify.app/home
+## Live link : https://642240a6e19e6b33e7fc267a--idea-swap.netlify.app
 
 ### This is a MERN Project. Features are :
 <ul>
